@@ -4,5 +4,5 @@ import solid from "vite-plugin-solid"
 
 export default defineConfig({
   base: "./",
-  plugins: [solid(), VitePWA({ registerType: "autoUpdate" })],
+  plugins: [solid(), VitePWA({ registerType: "autoUpdate", useCredentials: true })],
 })
