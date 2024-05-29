@@ -7,10 +7,14 @@ export const uploadFile = (
   for (const k in options) {
     input.setAttribute(k, options[k]);
   }
+
   return new Promise<File[]>((r) => {
     input.addEventListener("change", async () => {
       const files: File[] = Array.from(input.files || []);
       r(files);
+    });
+    input.addEventListener("cancel", () => {
+      r([])
     });
     input.click();
   });
